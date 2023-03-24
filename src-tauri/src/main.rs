@@ -10,11 +10,13 @@ fn greet(name: &str) -> String {
 }
 
 fn main() {
+    let version = CustomMenuItem::new("version".to_string(), "v0.0.1");
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
     let hide = CustomMenuItem::new("hide".to_string(), "Hide");
     let tray_menu = SystemTrayMenu::new()
         .add_item(hide)
         .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(version)
         .add_item(quit);
     let system_tray = SystemTray::new()
         .with_menu(tray_menu);
