@@ -20,6 +20,13 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "startDragging": true
       }
     },
     "bundle": {
@@ -47,6 +54,17 @@
         "title": "taurus",
         "width": 800,
         "height": 600
+      },
+      {
+        "label": "external",
+        "title": "Mycast",
+        "url": "https://mycast.xyz"
+      },
+      {
+        "label": "local-weather",
+        "decorations": false,
+        "title": "weather",
+        "url": "weather.html"
       }
     ]
   }
