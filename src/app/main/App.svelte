@@ -1,8 +1,10 @@
 <script lang="ts">
   import Greet from '../../lib/Greet.svelte';
+  import Dock from './view/Dock.svelte';
 </script>
 
 <main class="container">
+  <Dock />
   <h1>Welcome to Tauri!</h1>
 
   <div class="row">
