@@ -1,68 +1,25 @@
-<!-- <div class="menu-bar">
-  <div class="left">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Apple_logo_white.svg/1010px-Apple_logo_white.svg.png"
-      class="apple-logo"
-      alt=""
-    />
-    <span class="menus active">Finder</span>
-    <span class="menus">File</span>
-    <span class="menus">Edit</span>
-    <span class="menus">View</span>
-    <span class="menus">Go</span>
-    <span class="menus">Window</span>
-    <span class="menus">Help</span>
-  </div>
-  <div class="right">
-    <div class="menu-ico">
-      <img
-        src="https://freepngimg.com/download/united_states/76187-sound-information-united-business-states-address-email.png"
-        alt=""
-        class="vol"
-      />
-    </div>
-    <div class="menu-ico">
-      <i class="fab fa-bluetooth-b" />
-    </div>
-    <div class="menu-ico">
-      <i class="fas fa-battery-half" />
-    </div>
-    <div class="menu-ico">
-      <i class="fas fa-wifi" />
-    </div>
-    <div class="menu-ico">
-      <i class="fas fa-search" />
-    </div>
-    <div class="menu-ico">
-      <img
-        src="https://eshop.macsales.com/blog/wp-content/uploads/2021/03/control-center-icon.png"
-        alt=""
-        class="control-center"
-      />
-    </div>
-    <div class="menu-ico">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/en/8/8e/AppleSiriIcon2017.png"
-        alt=""
-        class="siri"
-      />
-    </div>
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import DockItem from './DockItem.svelte';
+  import StreamDockItems from './StreamDockItems.svelte';
+  import { SessionService } from '../service/SessionService';
+  import { SESSION_LOG_OFF, type SessionState } from '../model/SessionState';
 
-    <div class="menu-time">Mon 31 May 05:30</div>
-  </div>
-</div> -->
+  let sessionState: SessionState = SESSION_LOG_OFF;
+
+  onMount(() => {
+    SessionService.session.subscribe((s) => (sessionState = s));
+  });
+</script>
+
+<div data-tauri-drag-region>이동이동</div>
 
 <div class="dock">
   <div class="dock-container">
-    <li class="li-1">
-      <div class="name">Finder</div>
-      <img
-        class="ico"
-        src="https://uploads-ssl.webflow.com/5f7081c044fb7b3321ac260e/5f70853981255cc36b3a37af_finder.png"
-        alt=""
-      />
-    </li>
-    <li class="li-2">
+    {#if sessionState.state === 'log-in'}
+      <StreamDockItems sessionHash={sessionState.hash} />
+    {/if}
+    <!-- <li class="li-2">
       <div class="name">Siri</div>
       <img
         class="ico"
@@ -173,7 +130,7 @@
         src="https://findicons.com/files/icons/569/longhorn_objects/128/trash.png"
         alt=""
       />
-    </li>
+    </li> -->
   </div>
 </div>
 

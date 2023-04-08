@@ -1,24 +1,19 @@
 <script lang="ts">
-  import { LoginCommand } from '../model/LoginCommand';
-  import type { SessionState } from '../model/SessionState';
+  import { onMount } from 'svelte';
+  import { SessionService } from '../service/SessionService';
+  import { SESSION_LOG_OFF, type SessionState } from '../model/SessionState';
 
-  export let session: SessionState = { state: 'log-off' };
+  export let session: SessionState = SESSION_LOG_OFF;
 
   let pass: string;
   let id: string;
 
+  onMount(() => {
+    SessionService.session.subscribe((s) => (session = s));
+  });
+
   async function login() {
-    console.log(id, pass);
-    try {
-      const { result, hash } = await new LoginCommand().execute(id, pass);
-      if (result) {
-        session = { state: 'log-in', hash };
-      } else {
-        session = { state: 'log-off' };
-      }
-    } catch {
-      session = { state: 'log-off' };
-    }
+    SessionService.login(id, pass);
   }
 </script>
 
