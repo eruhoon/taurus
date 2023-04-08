@@ -9,7 +9,7 @@
 </script>
 
 <main class="container">
-  <!-- <Dock /> -->
+  <Dock />
   <Login bind:session={loginSession} />
 
   {#if loginSession.state === 'log-in'}

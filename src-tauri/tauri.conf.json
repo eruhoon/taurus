@@ -57,11 +57,6 @@
         "url": "src/app/main/index.html"
       },
       {
-        "label": "external",
-        "title": "Mycast",
-        "url": "https://mycast.xyz"
-      },
-      {
         "label": "local-weather",
         "title": "weather",
         "url": "src/app/weather/index.html"

@@ -1,4 +1,4 @@
-<div class="menu-bar">
+<!-- <div class="menu-bar">
   <div class="left">
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Apple_logo_white.svg/1010px-Apple_logo_white.svg.png"
@@ -50,7 +50,7 @@
 
     <div class="menu-time">Mon 31 May 05:30</div>
   </div>
-</div>
+</div> -->
 
 <div class="dock">
   <div class="dock-container">
