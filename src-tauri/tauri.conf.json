@@ -26,6 +26,9 @@
         "close": true,
         "hide": true,
         "show": true,
+        "setCursorGrab": true,
+        "setSkipTaskbar": true,
+        "setIgnoreCursorEvents": true,
         "startDragging": true
       }
     },
@@ -53,15 +56,18 @@
         "resizable": false,
         "title": "taurus",
         "width": 800,
-        "height": 600,
+        "height": 300,
+        "alwaysOnTop": true,
         "transparent": true,
         "decorations": false,
+        "skipTaskbar": true,
         "url": "src/app/main/index.html"
       },
       {
         "label": "local-weather",
         "title": "weather",
-        "url": "src/app/weather/index.html"
+        "url": "src/app/weather/index.html",
+        "visible": false
       }
     ]
   }

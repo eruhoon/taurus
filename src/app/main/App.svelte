@@ -1,19 +1,21 @@
 <script lang="ts">
-  import Greet from '../../lib/Greet.svelte';
   import type { SessionState } from './model/SessionState';
-  import Checker from './view/Checker.svelte';
   import Dock from './view/Dock.svelte';
+  import DragHelper from './view/DragHelper.svelte';
   import Login from './view/Login.svelte';
 
   let loginSession: SessionState = { state: 'log-off' };
+
+  // appWindow.setIgnoreCursorEvents(true);
 </script>
 
 <main class="container">
-  <Dock />
-  <Login bind:session={loginSession} />
-
+  <DragHelper />
   {#if loginSession.state === 'log-in'}
-    <Checker loginHash={loginSession.hash} />
+    <Dock />
+    <!-- <Checker loginHash={loginSession.hash} /> -->
+  {:else}
+    <Login bind:session={loginSession} />
   {/if}
   <!-- <h1>Welcome to Tauri!</h1>
 
@@ -37,11 +39,7 @@
 </main>
 
 <style>
-  .logo.vite:hover {
-    filter: drop-shadow(0 0 2em #747bff);
-  }
-
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00);
+  .container {
+    /* background: blue; */
   }
 </style>

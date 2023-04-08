@@ -19,12 +19,14 @@
     justify-content: center;
     width: 50px;
     height: 50px;
+    opacity: 0.6;
     vertical-align: bottom;
     transition: 0.2s;
     transform-origin: 50% 100%;
 
     &:hover {
       margin: 0px 13px 0px 13px;
+      opacity: 1;
 
       .name {
         visibility: visible !important;
