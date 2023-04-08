@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .titlebar {
     height: 30px;
     background: #329ea3;
@@ -46,6 +46,10 @@
     top: 0;
     left: 0;
     right: 0;
+
+    &:hover {
+      background: blue;
+    }
   }
   .titlebar-button {
     display: inline-flex;

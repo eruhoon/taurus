@@ -13,6 +13,7 @@ export default defineConfig(async () => ({
       preprocess: [
         sveltePreprocess({
           typescript: true,
+          sass: true,
         }),
       ],
     }),
