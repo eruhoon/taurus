@@ -6,6 +6,7 @@
 
   let sessionState: SessionState = SESSION_LOG_OFF;
   let dockWidth: number;
+  let containerWidth: number;
   let dockElm: HTMLDivElement;
 
   onMount(() => {
@@ -20,12 +21,12 @@
 </script>
 
 <div
-  class="dock"
+  class="dock {containerWidth > dockWidth ? 'overflow' : ''}"
   bind:clientWidth={dockWidth}
   on:wheel={(e) => onWheel(e)}
   bind:this={dockElm}
 >
-  <div class="dock-container">
+  <div class="dock-container" bind:clientWidth={containerWidth}>
     {#if sessionState.state === 'log-in'}
       <StreamDockItems sessionHash={sessionState.hash} />
     {/if}
@@ -46,21 +47,24 @@
   }
 
   .dock {
-    $margin: 5px;
     display: flex;
     width: auto;
     height: 60px;
+    padding-top: 50px;
     border-radius: 16px;
     overflow-x: hidden;
     overflow-y: hidden;
     justify-content: center;
+
+    &.overflow {
+      justify-content: flex-start;
+    }
 
     .dock-container {
       width: auto;
       height: 58px;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       flex-wrap: nowrap;
       border-radius: 16px;
       justify-content: center;

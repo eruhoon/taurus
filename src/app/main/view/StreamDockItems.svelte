@@ -49,20 +49,18 @@
   }
 </script>
 
-{#each locals as stream, i}
+{#each locals as stream}
   <DockItem
     displayName={stream.nickname}
     icon={stream.icon}
-    index={i + 1}
     onClick={() => onClick(stream)}
   />
 {/each}
 
-{#each extenals as stream, i}
+{#each extenals as stream}
   <DockItem
     displayName={stream.nickname}
     icon={stream.icon}
-    index={i + 1}
     onClick={() => onClick(stream)}
   />
 {/each}

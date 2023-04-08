@@ -1,11 +1,10 @@
 <script lang="ts">
-  export let index: number;
   export let displayName: string;
   export let icon: string;
   export let onClick: () => void;
 </script>
 
-<li class="li-{index + 1}">
+<li>
   <div class="name">{displayName}</div>
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <img class="ico" src={icon} alt="" on:click={onClick} />
@@ -13,6 +12,7 @@
 
 <style lang="scss">
   li {
+    position: relative;
     list-style: none;
     display: flex;
     align-items: center;
@@ -29,22 +29,28 @@
       opacity: 1;
 
       .name {
-        visibility: visible !important;
+        visibility: visible;
       }
     }
 
     .name {
       position: absolute;
-      top: -70px;
+      top: -50px;
       background: rgba(0, 0, 0, 0.5);
       color: rgba(255, 255, 255, 0.9);
-      height: 10px;
-      padding: 10px 15px;
+      min-width: 50px;
+      width: auto;
+      max-width: 200px;
+      height: 30px;
+      padding: 5px 5px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 5px;
       visibility: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
       &::after {
         content: '';
         position: absolute;
@@ -65,18 +71,6 @@
       object-fit: cover;
       transition: 0.2s;
       border-radius: 10px;
-      //   background: blue;
-    }
-
-    .ico-bin {
-      width: 94% !important;
-      height: 94% !important;
-      object-fit: cover;
-      transition: 0.2s;
-
-      &:hover {
-        margin-left: 10px;
-      }
     }
   }
 </style>
