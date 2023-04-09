@@ -15,6 +15,7 @@
       "iconPath": "icons/icon.png",
       "iconAsTemplate": true
     },
+    "macOSPrivateApi": true,
     "allowlist": {
       "all": false,
       "shell": {
