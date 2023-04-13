@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { open } from '@tauri-apps/api/shell';
   import { onMount } from 'svelte';
-  import DockItem from './DockItem.svelte';
-  import { StreamSocketService } from '../service/StreamSocketService';
   import type { CheckerSocketStream } from '../model/CheckerSocketModel';
+  import { StreamSocketService } from '../service/StreamSocketService';
+  import DockItem from './DockItem.svelte';
 
   export let sessionHash: string;
   let locals: CheckerSocketStream[] = [];
@@ -15,8 +16,8 @@
   });
 
   function onClick(stream: CheckerSocketStream) {
-    console.log(1111);
-    open(getLink(stream));
+    const link = getLink(stream);
+    open(link);
   }
 
   function getLocalLink(info: CheckerSocketStream): string {
